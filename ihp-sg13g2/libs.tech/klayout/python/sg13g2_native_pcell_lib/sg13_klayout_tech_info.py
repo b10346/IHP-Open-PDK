@@ -38,8 +38,7 @@ class KLayerInfo:
     def klayout_layer_info(self) -> pya.LayerInfo:
         return pya.LayerInfo(self.layer_info.gds_layer, 
                              self.layer_info.gds_datatype,
-                             self.layer_info.name, 
-                             )
+                             self.layer_info.name)
 
 
 class KViaInfo:
@@ -49,9 +48,9 @@ class KViaInfo:
     @cached_property
     def klayout_via_type(self) -> pya.ViaType:
         vt = pya.ViaType(self.via_info.name, self.via_info.description)
-        vt.bottom = self.via_info.bottom
-        vt.cut = self.via_info.cut
-        vt.top = self.via_info.top
+        vt.bottom = KLayerInfo(self.via_info.bottom).klayout_layer_info
+        vt.cut = KLayerInfo(self.via_info.cut).klayout_layer_info
+        vt.top = KLayerInfo(self.via_info.top).klayout_layer_info
         vt.bottom_grid = self.via_info.bottom_grid
         vt.top_grid = self.via_info.top_grid
         vt.wbmin = self.via_info.wbmin
@@ -73,7 +72,8 @@ class KTechInfo:
     
     @cached_property
     def klayout_via_types(self) -> List[pya.ViaType]:
-        return [via.klayout_via_type for via in self.tech_info.vias]
+        kvias = [KViaInfo(via) for via in self.tech_info.vias]
+        return [via.klayout_via_type for via in kvias]
     
     @cached_property
     def via_choices(self) -> List[Tuple[str, str]]:
