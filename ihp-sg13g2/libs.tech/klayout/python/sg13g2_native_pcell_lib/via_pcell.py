@@ -41,8 +41,8 @@ class ViaPCell(pya.PCellDeclarationHelper):
         self.param("via", self.TypeList, "Via", choices=self.tech_info.via_choices, default='SG13G2_VIA_M1_M2')
         
 	 # Optional array override
-        self.param("nx", self.TypeInt, "nx", default=0)
-        self.param("ny", self.TypeInt, "ny", default=0)
+        self.param("nx", self.TypeInt, "nx", default=1)
+        self.param("ny", self.TypeInt, "ny", default=1)
 
         # Optional plane sizes
         self.param("w_bottom", self.TypeDouble, "Bottom width [µm]",  default=0.0)
