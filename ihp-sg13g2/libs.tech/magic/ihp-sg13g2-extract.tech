@@ -110,7 +110,8 @@ variants (hrhc),(hrlc)
  resist (allm4)/metal4           103
  resist (allm5,*mimcap)/metal5   103
  resist (allm6)/metal6            21
- resist (allm7)/metal7            14.5
+ # actually 14.5, but must be integer
+ resist (allm7)/metal7            15
 
  contact alldiffcont   22000
  contact pc            20000
@@ -136,7 +137,8 @@ variants (lrhc),(lrlc)
  resist (allm4)/metal4            73
  resist (allm5,*mimcap)/metal5    73
  resist (allm6)/metal6            15
- resist (allm7)/metal7             7.5
+ # actually 7.5, but must be integer
+ resist (allm7)/metal7             7
 
  contact alldiffcont   8000
  contact pc            8000
