@@ -364,7 +364,7 @@ templates = [
     },
     {
         "regex": re.compile(
-            r"^.*npn13G2(?=.*\bNx=(?P<Nx>\d+)\b)(?!.*\bEl=).*"
+            r"^.*\bnpn13G2\b(?=.*\bNx=(?P<Nx>\d+)\b).*"
         ),
         "pcell_library": "SG13_dev",
         "pcell_name": "npn13G2",
@@ -396,7 +396,7 @@ templates = [
     },
     {
         "regex": re.compile(
-            rf"^.*npn13G2v(?=.*\bNx=(?P<Nx>\d+)\b)(?=.*\bEl=(?P<El>{NUMBER})).*"
+            rf"^.*\bnpn13G2v\b(?=.*\bNx=(?P<Nx>\d+)\b).*"
         ),
         "pcell_library": "SG13_dev",
         "pcell_name": "npn13G2V",
@@ -405,12 +405,8 @@ templates = [
                 "name": "Nx",
                 "type": "int",
             },
-            {
-                "name": "El",
-                "type": "int",
-            },
         ],
-        "default_params": {"Nx": 1, "El": 1},
+        "default_params": {"Nx": 1},
     },
     {
         "regex": re.compile(
