@@ -19,10 +19,12 @@
 
 import re
 
+NUMBER = r"[+-]?\d+(?:\.\d+)?(?:[eE][+-]?\d+)?(?:[a-zA-Zµ]+)?"
+
 templates = [
     {
         "regex": re.compile(
-            r"^.*sg13_lv_nmos(?=.*w=(?P<w>\d+(\.\d+)?u))(?=.*l=(?P<l>\d+(\.\d+)?u))(?=.*ng=(?P<ng>\d+))(?=.*m=(?P<m>\d+))(?!.*rfmode).*$"
+            rf"^.*sg13_lv_nmos(?=.*w=(?P<w>{NUMBER}))(?=.*l=(?P<l>{NUMBER}))(?=.*ng=(?P<ng>\d+))(?=.*m=(?P<m>\d+))(?!.*rfmode).*$"
         ),
         "pcell_library": "SG13_dev",
         "pcell_name": "nmos",
@@ -48,7 +50,7 @@ templates = [
     },  # Your updated template for sg13_lv_nmos
     {
         "regex": re.compile(
-            r"^.*sg13_lv_pmos(?=.*w=(?P<w>\d+(\.\d+)?u))(?=.*l=(?P<l>\d+(\.\d+)?u))(?=.*ng=(?P<ng>\d+))(?=.*m=(?P<m>\d+))(?!.*rfmode).*$"
+            rf"^.*sg13_lv_pmos(?=.*w=(?P<w>{NUMBER}))(?=.*l=(?P<l>{NUMBER}))(?=.*ng=(?P<ng>\d+))(?=.*m=(?P<m>\d+))(?!.*rfmode).*$"
         ),
         "pcell_library": "SG13_dev",
         "pcell_name": "pmos",
@@ -74,7 +76,7 @@ templates = [
     },
     {
         "regex": re.compile(
-            r"^.*sg13_hv_nmos(?=.*w=(?P<w>\d+(\.\d+)?u))(?=.*l=(?P<l>\d+(\.\d+)?u))(?=.*ng=(?P<ng>\d+))(?=.*m=(?P<m>\d+))(?!.*rfmode).*$"
+            rf"^.*sg13_hv_nmos(?=.*w=(?P<w>{NUMBER}))(?=.*l=(?P<l>{NUMBER}))(?=.*ng=(?P<ng>\d+))(?=.*m=(?P<m>\d+))(?!.*rfmode).*$"
         ),
         "pcell_library": "SG13_dev",
         "pcell_name": "nmosHV",
@@ -100,7 +102,7 @@ templates = [
     },
     {
         "regex": re.compile(
-            r"^.*sg13_hv_pmos(?=.*w=(?P<w>\d+(\.\d+)?u))(?=.*l=(?P<l>\d+(\.\d+)?u))(?=.*ng=(?P<ng>\d+))(?=.*m=(?P<m>\d+))(?!.*rfmode).*$"
+            rf"^.*sg13_hv_pmos(?=.*w=(?P<w>{NUMBER}))(?=.*l=(?P<l>{NUMBER}))(?=.*ng=(?P<ng>\d+))(?=.*m=(?P<m>\d+))(?!.*rfmode).*$"
         ),
         "pcell_library": "SG13_dev",
         "pcell_name": "pmosHV",
@@ -126,7 +128,7 @@ templates = [
     },
     {
         "regex": re.compile(
-            r"^.*sg13_lv_nmos(?=.*w=(?P<w>\d+(\.\d+)?u))(?=.*l=(?P<l>\d+(\.\d+)?u))(?=.*ng=(?P<ng>\d+))(?=.*m=(?P<m>\d+))(?=.*rfmode=(?P<rfmode>\d+)).*$"
+            rf"^.*sg13_lv_nmos(?=.*w=(?P<w>{NUMBER}))(?=.*l=(?P<l>{NUMBER}))(?=.*ng=(?P<ng>\d+))(?=.*m=(?P<m>\d+))(?=.*rfmode=(?P<rfmode>\d+)).*$"
         ),
         "pcell_library": "SG13_dev",
         "pcell_name": "rfnmos",
@@ -162,7 +164,7 @@ templates = [
     },
     {
         "regex": re.compile(
-            r"^.*sg13_lv_pmos(?=.*w=(?P<w>\d+(\.\d+)?u))(?=.*l=(?P<l>\d+(\.\d+)?u))(?=.*ng=(?P<ng>\d+))(?=.*m=(?P<m>\d+))(?=.*rfmode=(?P<rfmode>\d+)).*$"
+            rf"^.*sg13_lv_pmos(?=.*w=(?P<w>{NUMBER}))(?=.*l=(?P<l>{NUMBER}))(?=.*ng=(?P<ng>\d+))(?=.*m=(?P<m>\d+))(?=.*rfmode=(?P<rfmode>\d+)).*$"
         ),
         "pcell_library": "SG13_dev",
         "pcell_name": "rfpmos",
@@ -198,7 +200,7 @@ templates = [
     },
     {
         "regex": re.compile(
-            r"^.*sg13_hv_nmos(?=.*w=(?P<w>\d+(\.\d+)?u))(?=.*l=(?P<l>\d+(\.\d+)?u))(?=.*ng=(?P<ng>\d+))(?=.*m=(?P<m>\d+))(?=.*rfmode=(?P<rfmode>\d+)).*$"
+            rf"^.*sg13_hv_nmos(?=.*w=(?P<w>{NUMBER}))(?=.*l=(?P<l>{NUMBER}))(?=.*ng=(?P<ng>\d+))(?=.*m=(?P<m>\d+))(?=.*rfmode=(?P<rfmode>\d+)).*$"
         ),
         "pcell_library": "SG13_dev",
         "pcell_name": "rfnmosHV",
@@ -234,7 +236,7 @@ templates = [
     },
     {
         "regex": re.compile(
-            r"^.*sg13_hv_pmos(?=.*w=(?P<w>\d+(\.\d+)?u))(?=.*l=(?P<l>\d+(\.\d+)?u))(?=.*ng=(?P<ng>\d+))(?=.*m=(?P<m>\d+))(?=.*rfmode=(?P<rfmode>\d+)).*$"
+            rf"^.*sg13_hv_pmos(?=.*w=(?P<w>{NUMBER}))(?=.*l=(?P<l>{NUMBER}))(?=.*ng=(?P<ng>\d+))(?=.*m=(?P<m>\d+))(?=.*rfmode=(?P<rfmode>\d+)).*$"
         ),
         "pcell_library": "SG13_dev",
         "pcell_name": "rfpmosHV",
@@ -269,7 +271,7 @@ templates = [
         },
     },
     {
-        "regex": re.compile(r"^.*bondpad(?=.*size=(?P<size>\d+(\.\d+)?u)).*$"),
+        "regex": re.compile(rf"^.*bondpad(?=.*size=(?P<size>{NUMBER})).*$"),
         "pcell_library": "SG13_dev",
         "pcell_name": "bondpad",
         "params": [
@@ -282,7 +284,7 @@ templates = [
     },
     {
         "regex": re.compile(
-            r"^.*cap_cmim(?=.*w=(?P<w>\d+(\.\d+)?e-?\d+))(?=.*l=(?P<l>\d+(\.\d+)?e-?\d+))(?=.*m=(?P<m>\d+)).*$"
+            rf"^.*cap_cmim(?=.*w=(?P<w>{NUMBER}))(?=.*l=(?P<l>{NUMBER}))(?=.*m=(?P<m>\d+)).*$"
         ),
         "pcell_library": "SG13_dev",
         "pcell_name": "cmim",
@@ -304,7 +306,7 @@ templates = [
     },
     {
         "regex": re.compile(
-            r"^.*cap_rfcmim(?=.*w=(?P<w>\d+(\.\d+)?e-?\d+))(?=.*l=(?P<l>\d+(\.\d+)?e-?\d+))(?=.*wfeed=(?P<wfeed>\d+(\.\d+)?e-?\d+)).*$"
+            rf"^.*cap_rfcmim(?=.*w=(?P<w>{NUMBER}))(?=.*l=(?P<l>{NUMBER}))(?=.*wfeed=(?P<wfeed>{NUMBER})).*$"
         ),
         "pcell_library": "SG13_dev",
         "pcell_name": "rfcmim",
@@ -326,7 +328,7 @@ templates = [
     },
     {
         "regex": re.compile(
-            r"^.*dantenna(?=.*l=(?P<l>\d+(\.\d+)?u))(?=.*w=(?P<w>\d+(\.\d+)?u)).*$"
+            rf"^.*dantenna(?=.*l=(?P<l>{NUMBER}))(?=.*w=(?P<w>{NUMBER})).*$"
         ),
         "pcell_library": "SG13_dev",
         "pcell_name": "dantenna",
@@ -344,7 +346,7 @@ templates = [
     },
     {
         "regex": re.compile(
-            r"^.*dpantenna(?=.*l=(?P<l>\d+(\.\d+)?u))(?=.*w=(?P<w>\d+(\.\d+)?u)).*$"
+            rf"^.*dpantenna(?=.*l=(?P<l>{NUMBER}))(?=.*w=(?P<w>{NUMBER})).*$"
         ),
         "pcell_library": "SG13_dev",
         "pcell_name": "dpantenna",
@@ -376,7 +378,7 @@ templates = [
     },
     {
         "regex": re.compile(
-            r"^.*npn13G2l(?=.*\bNx=(?P<Nx>\d+)\b)(?=.*\bEl=(?P<El>\d+(\.\d+)?)).*"
+            rf"^.*npn13G2l(?=.*\bNx=(?P<Nx>\d+)\b)(?=.*\bEl=(?P<El>{NUMBER})).*"
         ),
         "pcell_library": "SG13_dev",
         "pcell_name": "npn13G2L",
@@ -394,7 +396,7 @@ templates = [
     },
     {
         "regex": re.compile(
-            r"^.*npn13G2v(?=.*\bNx=(?P<Nx>\d+)\b)(?=.*\bEl=(?P<El>\d+)).*"
+            rf"^.*npn13G2v(?=.*\bNx=(?P<Nx>\d+)\b)(?=.*\bEl=(?P<El>{NUMBER})).*"
         ),
         "pcell_library": "SG13_dev",
         "pcell_name": "npn13G2V",
@@ -412,7 +414,7 @@ templates = [
     },
     {
         "regex": re.compile(
-            r"^.*ntap1(?=.*R=(?P<R>\d+(\.\d+)?))(?=.*w=(?P<w>\d+(\.\d+)?e-?\d+))(?=.*l=(?P<l>\d+(\.\d+)?e-?\d+)).*$"
+            rf"^.*ntap1(?=.*R=(?P<R>{NUMBER}))(?=.*w=(?P<w>{NUMBER}))(?=.*l=(?P<l>{NUMBER})).*$"
         ),
         "pcell_library": "SG13_dev",
         "pcell_name": "ntap1",
@@ -434,7 +436,7 @@ templates = [
     },
     {
         "regex": re.compile(
-            r"^.*ptap1(?=.*R=(?P<R>\d+(\.\d+)?))(?=.*w=(?P<w>\d+(\.\d+)?e-?\d+))(?=.*l=(?P<l>\d+(\.\d+)?e-?\d+)).*$"
+            rf"^.*ptap1(?=.*R=(?P<R>{NUMBER}))(?=.*w=(?P<w>{NUMBER}))(?=.*l=(?P<l>{NUMBER})).*$"
         ),
         "pcell_library": "SG13_dev",
         "pcell_name": "ptap1",
@@ -456,7 +458,7 @@ templates = [
     },
     {
         "regex": re.compile(
-            r"^.*rhigh(?=.*w=(?P<w>\d+(\.\d+)?e-?\d+))(?=.*l=(?P<l>\d+(\.\d+)?e-?\d+))(?=.*m=(?P<m>\d+))(?=.*b=(?P<b>\d+)).*$"
+            rf"^.*rhigh(?=.*w=(?P<w>{NUMBER}))(?=.*l=(?P<l>{NUMBER}))(?=.*m=(?P<m>\d+))(?=.*b=(?P<b>\d+)).*$"
         ),
         "pcell_library": "SG13_dev",
         "pcell_name": "rhigh",
@@ -482,7 +484,7 @@ templates = [
     },
     {
         "regex": re.compile(
-            r"^.*rppd(?=.*w=(?P<w>\d+(\.\d+)?e-?\d+))(?=.*l=(?P<l>\d+(\.\d+)?e-?\d+))(?=.*m=(?P<m>\d+))(?=.*b=(?P<b>\d+)).*$"
+            rf"^.*rppd(?=.*w=(?P<w>{NUMBER}))(?=.*l=(?P<l>{NUMBER}))(?=.*m=(?P<m>\d+))(?=.*b=(?P<b>\d+)).*$"
         ),
         "pcell_library": "SG13_dev",
         "pcell_name": "rppd",
@@ -508,7 +510,7 @@ templates = [
     },
     {
         "regex": re.compile(
-            r"^.*rsil(?=.*w=(?P<w>\d+(\.\d+)?e-?\d+))(?=.*l=(?P<l>\d+(\.\d+)?e-?\d+))(?=.*m=(?P<m>\d+))(?=.*b=(?P<b>\d+)).*$"
+            rf"^.*rsil(?=.*w=(?P<w>{NUMBER}))(?=.*l=(?P<l>{NUMBER}))(?=.*m=(?P<m>\d+))(?=.*b=(?P<b>\d+)).*$"
         ),
         "pcell_library": "SG13_dev",
         "pcell_name": "rsil",
@@ -534,7 +536,7 @@ templates = [
     },
     {
         "regex": re.compile(
-            r"^.*sg13_hv_svaricap(?=.*W=(?P<W>\d+(\.\d+)?e-?\d+))(?=.*L=(?P<L>\d+(\.\d+)?e-?\d+))(?=.*Nx=(?P<Nx>\d+)).*$"
+            rf"^.*sg13_hv_svaricap(?=.*W=(?P<W>{NUMBER}))(?=.*L=(?P<L>{NUMBER}))(?=.*Nx=(?P<Nx>\d+)).*$"
         ),
         "pcell_library": "SG13_dev",
         "pcell_name": "SVaricap",
