@@ -414,16 +414,12 @@ templates = [
     },
     {
         "regex": re.compile(
-            rf"^.*ntap1(?=.*R=(?P<R>{NUMBER}))(?=.*w=(?P<w>{NUMBER}))(?=.*l=(?P<l>{NUMBER})).*$"
+            rf"^.*ntap1(?=.*w=(?P<w>{NUMBER}))(?=.*l=(?P<l>{NUMBER})).*$"
         ),
         "pcell_library": "SG13_dev",
         "pcell_name": "ntap1",
         "params": [
             {
-                "name": "R",
-                "type": "float",
-            },
-            {
                 "name": "w",
                 "type": "string",
             },
@@ -432,20 +428,16 @@ templates = [
                 "type": "string",
             },
         ],
-        "default_params": {"R": 262.8, "w": "0.78e-6", "l": "0.78e-6"},
+        "default_params": {"w": "0.78e-6", "l": "0.78e-6"},
     },
     {
         "regex": re.compile(
-            rf"^.*ptap1(?=.*R=(?P<R>{NUMBER}))(?=.*w=(?P<w>{NUMBER}))(?=.*l=(?P<l>{NUMBER})).*$"
+            rf"^.*ptap1(?=.*w=(?P<w>{NUMBER}))(?=.*l=(?P<l>{NUMBER})).*$"
         ),
         "pcell_library": "SG13_dev",
         "pcell_name": "ptap1",
         "params": [
             {
-                "name": "R",
-                "type": "float",
-            },
-            {
                 "name": "w",
                 "type": "string",
             },
@@ -454,7 +446,7 @@ templates = [
                 "type": "string",
             },
         ],
-        "default_params": {"R": 262.8, "w": "0.78e-6", "l": "0.78e-6"},
+        "default_params": {"w": "0.78e-6", "l": "0.78e-6"},
     },
     {
         "regex": re.compile(
@@ -510,7 +502,7 @@ templates = [
     },
     {
         "regex": re.compile(
-            rf"^.*rsil(?=.*w=(?P<w>{NUMBER}))(?=.*l=(?P<l>{NUMBER}))(?=.*m=(?P<m>\d+))(?=.*b=(?P<b>\d+)).*$"
+            rf"^.*rsil(?=.*w=(?P<w>{NUMBER}))(?=.*l=(?P<l>{NUMBER}))(?=.*m=(?P<m>\d+)).*$"
         ),
         "pcell_library": "SG13_dev",
         "pcell_name": "rsil",
@@ -527,26 +519,22 @@ templates = [
                 "name": "m",
                 "type": "int",
             },
-            {
-                "name": "b",
-                "type": "int",
-            },
         ],
-        "default_params": {"w": "0.5e-6", "l": "0.5e-6", "m": 1, "b": 0},
+        "default_params": {"w": "0.5e-6", "l": "0.5e-6", "m": 1},
     },
     {
         "regex": re.compile(
-            rf"^.*sg13_hv_svaricap(?=.*W=(?P<W>{NUMBER}))(?=.*L=(?P<L>{NUMBER}))(?=.*Nx=(?P<Nx>\d+)).*$"
+            rf"^.*sg13_hv_svaricap(?=.*w=(?P<w>{NUMBER}))(?=.*l=(?P<l>{NUMBER}))(?=.*Nx=(?P<Nx>\d+)).*$"
         ),
         "pcell_library": "SG13_dev",
         "pcell_name": "SVaricap",
         "params": [
             {
-                "name": "W",
+                "name": "w",
                 "type": "string",
             },
             {
-                "name": "L",
+                "name": "l",
                 "type": "string",
             },
             {
@@ -554,7 +542,7 @@ templates = [
                 "type": "int",
             },
         ],
-        "default_params": {"W": "3.74e-6", "L": "0.3e-6", "Nx": 1},
+        "default_params": {"w": "3.74e-6", "l": "0.3e-6", "Nx": 1},
     },
     ###################################################################
     {
@@ -644,5 +632,45 @@ templates = [
             },
         ],
         "default_params": {"Nx": 1, "Ny": 1},
+    },
+    {
+        "regex": re.compile(
+            rf"^.*isolbox(?=.*w=(?P<w>{NUMBER}))(?=.*l=(?P<l>{NUMBER})).*$"
+        ),
+        "pcell_library": "SG13_dev",
+        "pcell_name": "isolbox",
+        "params": [
+            {
+                "name": "w",
+                "type": "string",
+            },
+            {
+                "name": "l",
+                "type": "string",
+            },
+        ],
+        "default_params": {"w": "3u", "l": "3u"},
+    },
+    {
+        "regex": re.compile(
+            rf"^.*pnpMPA(?=.*a=(?P<a>{NUMBER}))(?=.*p=(?P<p>{NUMBER}))(?=.*m=(?P<m>\d+)).*$"
+        ),
+        "pcell_library": "SG13_dev",
+        "pcell_name": "pnpMPA",
+        "params": [
+            {
+                "name": "a",
+                "type": "string",
+            },
+            {
+                "name": "p",
+                "type": "string",
+            },
+            {
+                "name": "m",
+                "type": "int",
+            },
+        ],
+    "default_params": {"a": "2e-12", "p": "6e-6", "m": 1},
     },
 ]
