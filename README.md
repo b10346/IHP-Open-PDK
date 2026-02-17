@@ -123,17 +123,6 @@ backend option offers 5 thin metal layers, two thick metal layers (2 and 3 μm t
     * Source: https://github.com/The-OpenROAD-Project/OpenROAD-flow-scripts
 * LibreLane
     * Source: https://github.com/librelane/librelane
- 
-## GDSFactory: Programmatic Layout
-
-[GDSFactory](https://gdsfactory.github.io/IHP/) provides a Python-based alternative to manual layout editors like KLayout. Instead of drawing geometries by hand, you write Python code to generate your layouts, which brings several advantages:
-
-- **AI-assisted design**: generate layout code using AI tools, accelerating the design process.
-- **Automated design**: parameterize and script your cells, enabling batch generation and design-space exploration.
-- **Complex systems**: build hierarchical layouts programmatically, making it easier to create large-scale designs such as photonic or RF systems.
-- **Reproducibility**: layouts defined as code are version-controlled, testable, and shareable.
-
-Get started with the IHP GDSFactory plugin at https://gdsfactory.github.io/IHP/.
 
 ## Tool versions (tested with)
 [versions.txt](versions.txt)
