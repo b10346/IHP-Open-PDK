@@ -17,14 +17,22 @@ class SVaricap(DloGen):
         defL       = '0.3u'
         defW       = '3.74u'
         
+#ifdef KLAYOUT
+        specs('model', model, 'Model name')
+        specs('w', defW, 'Width' , ChoiceConstraint(['3.74u', '9.74u']))
+        specs('l', defL, 'Length', ChoiceConstraint(['0.3u' , '0.8u']))
+        specs('Nx', 1, 'Choose the columns number', RangeConstraint(1, 10))
+        specs('bn', 'sub!', 'Bulk node connection')
+#else
         specs('cdf_version', CDFVersion, 'CDF Version')
         specs('Display', 'Selected', 'Display', ChoiceConstraint(['All', 'Selected']))
         specs('model', model, 'Model name')
-        
+
         specs('w', defW, 'Width' , ChoiceConstraint(['3.74u', '9.74u']))
         specs('l', defL, 'Length', ChoiceConstraint(['0.3u' , '0.8u']))
-        specs('Nx', 1, 'Choose the columns number', RangeConstraint(1, 20))
+        specs('Nx', 1, 'Choose the columns number', RangeConstraint(1, 10))
         specs('bn', 'sub!', 'Bulk node connection')
+#endif
         specs('thickO', True, 'ThickGateOxide')
 
     def setupParams(self, params):
