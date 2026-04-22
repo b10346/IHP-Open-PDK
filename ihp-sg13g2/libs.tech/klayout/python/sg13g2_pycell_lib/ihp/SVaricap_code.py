@@ -51,15 +51,13 @@ class SVaricap(DloGen):
         gateOx = Layer('ThickGateOx', 'drawing')  # layer 44
         text = Layer('TEXT', 'drawing')           # layer 63
 
-        gateOactiv = techparams['TGO_c']
-        endcap = techparams['M1_c1']
-        contW = techparams['Cnt_a']
-        contS = techparams['Cnt_b']
-        metW = contW + 2*endcap
-
         nwellOgate = 0.57
         nbulayOgate = 0.33
-        
+        gateOactiv = 0.35
+        contW = 0.16
+        contS = 0.18
+        metW = contW+2*0.05
+
         if w == 3.74 :
             gateOnwell  = 0.11
             gateOnbulay = 0.35
