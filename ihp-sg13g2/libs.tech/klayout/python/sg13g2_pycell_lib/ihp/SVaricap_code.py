@@ -125,4 +125,8 @@ class SVaricap(DloGen):
         dbCreateRect(self, nwell, Box(x1-0.73, y1-gateS-0.5+gateOnwell, x1-gateS+NX*pcStepX+0.57, y1+w+0.5-gateOnwell))
         dbCreateRect(self, nbulay, Box(x1-0.49, y1-gateS-0.5+gateOnbulay, x1-gateS+NX*pcStepX+0.33, y1+w+0.5-gateOnbulay))
         dbCreateLabel(self, text, Point(x1-0.49, y1-gateS-0.5+gateOnbulay+gateOactiv), 'SVaricap', 'centerLeft', 'R0', Font.EURO_STYLE, 0.25)
+        
+        dbCreateLabel(self, text, Point(x1+0.2, y1-gateS-0.2), 'G1', 'centerLeft', 'R0', Font.EURO_STYLE, 0.1)
+        dbCreateLabel(self, text, Point(x1+0.2, y1+w+0.2), 'G2', 'centerLeft', 'R0', Font.EURO_STYLE, 0.1)
+        dbCreateLabel(self, text, Point(x1-0.44, w/2+0.5), 'W', 'centerLeft', 'R0', Font.EURO_STYLE, 0.1)
             
