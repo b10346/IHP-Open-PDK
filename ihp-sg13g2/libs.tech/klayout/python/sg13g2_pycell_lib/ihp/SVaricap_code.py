@@ -49,7 +49,6 @@ class SVaricap(DloGen):
         specs('Nx', 1, 'Choose the columns number', RangeConstraint(1, 10))
         specs('bn', 'sub!', 'Bulk node connection')
 #endif
-        specs('thickO', True, 'ThickGateOxide')
 
     def setupParams(self, params):
         # process parameter values entered by user
@@ -57,7 +56,6 @@ class SVaricap(DloGen):
         self.Nx = params['Nx']
         self.l = Numeric(params['l'])
         self.w = Numeric(params['w'])
-        self.thickO = params['thickO']
 
     def genLayout(self):
         l = Numeric(self.l)*1e6
@@ -90,12 +88,9 @@ class SVaricap(DloGen):
             gateOnbulay = 0.1
             
         x1 = 0.73
-
-        if self.thickO :
-            gateS = 0.25
-            dbCreateRect(self, gateOx, Box(-0.1, -0.79, x1-gateS+NX*(gateS+l)*2+0.67, 0.39+gateS+w+0.5+0.68))
-        else :
-            gateS = 0.19
+        # ThickGateOxide
+        gateS = 0.25
+        dbCreateRect(self, gateOx, Box(-0.1, -0.79, x1-gateS+NX*(gateS+l)*2+0.67, 0.39+gateS+w+0.5+0.68))
 
         psdStep = 10
         y1 = 0.39+gateS
