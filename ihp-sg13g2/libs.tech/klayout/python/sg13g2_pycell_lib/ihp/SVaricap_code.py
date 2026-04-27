@@ -128,16 +128,12 @@ class SVaricap(DloGen):
         MetalCont(self, x1+0.02, y1+w+0.25, x1-gateS-0.02+NX*pcStepX, y1+w+0.25, met1, cont, metW, contW, contW, 0.05, contS)
         MetalCont(self, x1-0.34, y1+(w-gateS)/2-0.48, x1-0.34, y1+(w-gateS)/2+0.48, met1, cont, contW+2*0.02, contW, contW, 0.05, contS) #cont left side
         # the G1, G2 and W pins
-        MkPin(self, 'G1', 0, Box(x1+0.02, y1-gateS-0.12, x1-gateS-0.02+NX*pcStepX, y1-gateS-0.38), 'Metal1')
-        MkPin(self, 'G2', 0, Box(x1+0.02, y1+w+0.12, x1-gateS-0.02+NX*pcStepX, y1+w+0.38), 'Metal1')
-        MkPin(self, 'W',  0, Box(x1-0.44, y1+GridFix((w-gateS)/2)-0.47, x1-0.24, y1+GridFix((w-gateS)/2)+0.47), 'Metal1')
+        MkPin(self, 'G1', 0, Box(x1+0.02, y1-gateS-0.12, x1-gateS-0.02+NX*pcStepX, y1-gateS-0.38), 'Metal1', True)
+        MkPin(self, 'G2', 0, Box(x1+0.02, y1+w+0.12, x1-gateS-0.02+NX*pcStepX, y1+w+0.38), 'Metal1', True)
+        MkPin(self, 'W',  0, Box(x1-0.44, y1+GridFix((w-gateS)/2)-0.47, x1-0.24, y1+GridFix((w-gateS)/2)+0.47), 'Metal1', True)
         
         dbCreateRect(self, activ, Box(x1-0.49, y1-gateS-0.5+gateOactiv, x1-gateS+NX*pcStepX+0.33, y1+w+0.5-gateOactiv))
         dbCreateRect(self, nwell, Box(x1-0.73, y1-gateS-0.5+gateOnwell, x1-gateS+NX*pcStepX+0.57, y1+w+0.5-gateOnwell))
         dbCreateRect(self, nbulay, Box(x1-0.49, y1-gateS-0.5+gateOnbulay, x1-gateS+NX*pcStepX+0.33, y1+w+0.5-gateOnbulay))
         dbCreateLabel(self, text, Point(x1-0.49, y1-gateS-0.5+gateOnbulay+gateOactiv), 'SVaricap', 'centerLeft', 'R0', Font.EURO_STYLE, 0.25)
-        
-        dbCreateLabel(self, text, Point(x1+0.2, y1-gateS-0.2), 'G1', 'centerLeft', 'R0', Font.EURO_STYLE, 0.1)
-        dbCreateLabel(self, text, Point(x1+0.2, y1+w+0.2), 'G2', 'centerLeft', 'R0', Font.EURO_STYLE, 0.1)
-        dbCreateLabel(self, text, Point(x1-0.44, w/2+0.5), 'W', 'centerLeft', 'R0', Font.EURO_STYLE, 0.1)
             
